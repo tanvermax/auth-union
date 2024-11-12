@@ -23,12 +23,30 @@ const Navber = () => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li>
-        <NavLink to={"/login"}>Login </NavLink>
-      </li>
-      <li>
-        <NavLink to={"/signin"}>Sign IN</NavLink>
-      </li>
+     
+     {
+      user  ? <>  <li>
+      <NavLink to={"/product"}>Product</NavLink>
+    </li>
+    <li>
+      <NavLink to={"/profile"}>Profile</NavLink>
+    </li></> : <> <li>
+      <NavLink to={"/login"}>Login </NavLink>
+    </li>
+    <li>
+      <NavLink to={"/signin"}>Sign IN</NavLink>
+    </li></>
+     }
+      {/* {user && (
+        <>
+          <li>
+            <NavLink to={"/product"}>Product</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/profile"}>Profile</NavLink>
+          </li>
+        </>
+      )} */}
     </>
   );
 

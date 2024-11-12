@@ -20,7 +20,8 @@ const Signin = () => {
     // sign in in new
     crateUser(email,password)
     .then(result=>{
-      console.log(result.user)
+      console.log(result.user);
+      e.target.reset();
       
     })
     .catch(error=>{

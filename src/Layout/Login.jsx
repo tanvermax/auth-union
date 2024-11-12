@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Authcontext } from "../Provider/AuthProvider";
 
 const Login = () => {
-  const { signinUser } = useContext(Authcontext);
-
+  const { signinUser,SignInGoole } = useContext(Authcontext);
+  const navigate = useNavigate();
   const handellogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -13,11 +13,25 @@ const Login = () => {
     signinUser(email,password)
       .then((result) => {
         console.log(result.user);
+        e.target.reset();
+        navigate("/")
       })
       .catch((error) => {
         console.log("ERROR", error.message);
       })
   };
+ const handleGoogle=()=>{
+  SignInGoole()
+  .then(result=>{
+    console.log(result.user);
+    navigate("/")
+    
+  })
+  .catch(error=>{
+    console.log("ERROR",error);
+    
+  })
+ }
 
   return (
     <div>
@@ -69,6 +83,9 @@ const Login = () => {
             <p className="ml-4 mb-4">
               New to this website? Please <Link to={"/signin"}>Register</Link>
             </p>
+          
+          <p><button onClick={handleGoogle} className="btn btn-ghost">Google</button></p>
+
           </div>
         </div>
       </div>

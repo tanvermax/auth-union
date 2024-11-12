@@ -9,6 +9,9 @@ import Home from "./Cmponent/Home/Home.jsx";
 import Login from "./Layout/Login.jsx";
 import Signin from "./Layout/Signin.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+import Product from "./Cmponent/Product/Product.jsx";
+import Privetorter from "./Provider/Privetorter.jsx";
+import Profile from "./Cmponent/Profile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,14 @@ const router = createBrowserRouter([
         path: "signin",
         element: <Signin></Signin>,
       },
+      {
+        path:"product",
+        element: <Privetorter><Product></Product></Privetorter>
+      },
+      {
+        path:"profile",
+        element: <Privetorter><Profile></Profile></Privetorter>
+      }
     ],
   },
 ]);
